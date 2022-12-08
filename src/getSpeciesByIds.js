@@ -1,7 +1,7 @@
 const data = require('../data/zoo_data');
 
 const getSpeciesByIds = (ids) => {
-  // seu código aqui
+  // iniciando o projeto
 };
 
 module.exports = getSpeciesByIds;
