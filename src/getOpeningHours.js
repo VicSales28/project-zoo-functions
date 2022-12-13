@@ -68,11 +68,11 @@ console.log(getOpeningHours());
 console.log(getOpeningHours('Monday', '09:00-AM'));
 console.log(getOpeningHours('Tuesday', '09:00-AM'));
 console.log(getOpeningHours('Wednesday', '09:00-PM'));
-//console.log(getOpeningHours('Monday', 'XX:00-AM'));
-//console.log(getOpeningHours('Monday', '09:XX-AM'));
-//console.log(getOpeningHours('Monday', '09:00-XX'));
-//console.log(getOpeningHours('Monday', '23:00-PM'));
-//console.log(getOpeningHours('Monday', '09:90-AM'));
-//console.log(getOpeningHours('Mnday', '09:00-AM'));
+// console.log(getOpeningHours('Monday', 'XX:00-AM'));
+// console.log(getOpeningHours('Monday', '09:XX-AM'));
+// console.log(getOpeningHours('Monday', '09:00-XX'));
+// console.log(getOpeningHours('Monday', '23:00-PM'));
+// console.log(getOpeningHours('Monday', '09:90-AM'));
+// console.log(getOpeningHours('Mnday', '09:00-AM'));
 
 module.exports = getOpeningHours;

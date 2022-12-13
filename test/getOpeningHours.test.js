@@ -34,16 +34,16 @@ describe('Testes da função getOpeningHours', () => {
   it('Caso a função receba como argumentos Monday e 09:XX-AM, o seguinte error deve ser lançado: The minutes should represent a number', () => {
     expect(() => { getOpeningHours('Monday', '09:XX-AM'); }).toThrow(new Error('The minutes should represent a number'));
   });
-  it("Caso a função receba como argumentos Monday e 09:00-XX, o seguinte error deve ser lançado: The abbreviation must be 'AM' or 'PM'", () => {
-    expect(() => { getOpeningHours('Monday', '09:00-XX'); }).toThrow(new Error("The abbreviation must be 'AM' or 'PM'"));
+  it('Caso a função receba como argumentos Monday e 09:00-XX, o seguinte error deve ser lançado: The abbreviation must be AM or PM', () => {
+    expect(() => { getOpeningHours('Monday', '09:00-XX'); }).toThrow(new Error('The abbreviation must be \'AM\' or \'PM\''));
   });
   it('Caso a função receba como argumentos Monday e 23:00-PM, o seguinte error deve ser lançado: The hour must be between 0 and 12', () => {
-    expect(() => { getOpeningHours('Monday', '23:00-PM'); }).toThrow(new Error("The hour must be between 0 and 12"));
+    expect(() => { getOpeningHours('Monday', '23:00-PM'); }).toThrow(new Error('The hour must be between 0 and 12'));
   });
   it('Caso a função receba como argumentos Monday e 09:90-AM, o seguinte error deve ser lançado: The minutes must be between 0 and 59', () => {
-    expect(() => { getOpeningHours('Monday', '09:90-AM'); }).toThrow(new Error("The minutes must be between 0 and 59"));
+    expect(() => { getOpeningHours('Monday', '09:90-AM'); }).toThrow(new Error('The minutes must be between 0 and 59'));
   });
   it('Caso a função receba como argumentos Mnday e 09:00-AM, o seguinte error deve ser lançado: The day must be valid. Example: Monday', () => {
-    expect(() => { getOpeningHours('Mnday', '09:00-AM'); }).toThrow(new Error("The day must be valid. Example: Monday"));
+    expect(() => { getOpeningHours('Mnday', '09:00-AM'); }).toThrow(new Error('The day must be valid. Example: Monday'));
   });
 });
