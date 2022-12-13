@@ -33,4 +33,12 @@ const handlerElephants = (param) => {
   return computeData(param, elephants);
 };
 
+console.log(handlerElephants());
+console.log(handlerElephants(1.5));
+console.log(handlerElephants('popularity'));
+console.log(handlerElephants('count'));
+console.log(handlerElephants('averageAge'));
+console.log(handlerElephants('names'));
+console.log(handlerElephants('aliá'));
+
 module.exports = handlerElephants;
