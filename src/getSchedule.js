@@ -29,18 +29,27 @@ const getObjWithAllSchedules = () => {
 
 console.log(getObjWithAllSchedules());
 
-const getSchedule = (scheduleTarget) => {
-  if (scheduleTarget === undefined) {
+const getInfosDay = (target) => ({
+  [target]: getObjWithAllSchedules()[target],
+});
+// console.log(getInfosDay('Tuesday'));
+
+const getAvaliableDays = (target) => species
+  .find((animal) => animal.name === target).availability;
+// console.log(getAvaliableDays('lions'));
+
+const getSchedule = (target) => {
+  if (target === undefined) {
     return getObjWithAllSchedules();
   }
-  const targetSpecie = species.find((specie) => specie.name === scheduleTarget);
-  if (!targetSpecie && !days.includes(scheduleTarget)) {
+  const targetSpecie = species.find((specie) => specie.name === target);
+  if (!targetSpecie && !days.includes(target)) {
     return getObjWithAllSchedules();
   }
-  if (days.includes(scheduleTarget)) {
-    return { [scheduleTarget]: getObjWithAllSchedules()[scheduleTarget] };
+  if (days.includes(target)) {
+    return getInfosDay(target);
   }
-  return species.find((test) => test.name === scheduleTarget).availability;
+  return getAvaliableDays(target);
 };
 
 module.exports = getSchedule;
