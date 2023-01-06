@@ -1,21 +1,29 @@
 const { species, hours } = require('../data/zoo_data');
 
 const days = Object.keys(hours);
+// console.log(days);
+
+const getInfoAnimalsAvailable = (day) => species
+  .filter((animal) => animal.availability.includes(day));
+// console.log(getInfoAnimalsAvailable('Tuesday'));
+
+const getNames = (array) => array.map(({ name }) => name);
+// console.log(getNames(array));
+
+const closedDay = {
+  officeHour: 'CLOSED',
+  exhibition: 'The zoo will be closed!',
+};
 
 const getObjWithAllSchedules = () => {
   const objectWithAllSchedules = days.reduce((acc, day) => {
     acc[day] = {
       officeHour: `Open from ${hours[day].open}am until ${hours[day].close}pm`,
-      exhibition: species
-        .filter((animal) => animal.availability.includes(day))
-        .map(({ name }) => name),
+      exhibition: getNames((getInfoAnimalsAvailable(day))),
     };
     return acc;
   }, {});
-  objectWithAllSchedules.Monday = {
-    officeHour: 'CLOSED',
-    exhibition: 'The zoo will be closed!',
-  };
+  objectWithAllSchedules.Monday = closedDay;
   return objectWithAllSchedules;
 };
 
