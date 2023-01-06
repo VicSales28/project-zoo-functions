@@ -1,11 +1,18 @@
 const { prices } = require('../data/zoo_data');
 
-const countEntrants = (entrants) => {
-  const child = entrants.filter((visitor) => visitor.age < 18).length;
-  const adult = entrants.filter((visitor) => visitor.age >= 18 && visitor.age < 50).length;
-  const senior = entrants.filter((visitor) => visitor.age >= 50).length;
-  return { child, adult, senior };
-};
+const ageCounter = { child: 0, adult: 0, senior: 0 };
+
+const countEntrants = (entrants) =>
+  entrants.reduce((acc, curr) => {
+    if (curr.age < 18) {
+      ageCounter.child += 1;
+    } if (curr.age >= 18 && curr.age < 50) {
+      ageCounter.adult += 1;
+    } if (curr.age >= 50) {
+      ageCounter.senior += 1;
+    }
+    return { ...acc, ...ageCounter };
+  }, ageCounter);
 
 const calculateEntry = (entrants) => {
   if (entrants === undefined || entrants.length === 0 || Object.keys(entrants).length === 0) {
